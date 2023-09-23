@@ -8,6 +8,7 @@
 #include "modes/ProjectM.hpp"
 #include "modes/RivalsOfAether.hpp"
 #include "modes/Ultimate.hpp"
+#include "modes/extra/SCON4.hpp"
 
 extern KeyboardMode *current_kb_mode;
 
@@ -51,7 +52,8 @@ void select_mode(CommunicationBackend *backend) {
         } else if (inputs.right) {
             set_mode(backend, new FgcMode(socd::SOCD_NEUTRAL, socd::SOCD_NEUTRAL));
         } else if (inputs.b) {
-            set_mode(backend, new RivalsOfAether(socd::SOCD_2IP));
+            // set_mode(backend, new RivalsOfAether(socd::SOCD_2IP));
+            set_mode(backend, new SCON4(socd::SOCD_NEUTRAL, socd::SOCD_DIR2_PRIORITY));
         }
     } else if (inputs.mod_y && !inputs.mod_x && inputs.start) {
         if (inputs.l) {
